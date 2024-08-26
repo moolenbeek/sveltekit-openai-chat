@@ -20,9 +20,7 @@
 	<h1 id="title">Open AI</h1>
 
 	<form method="POST" on:submit|preventDefault={sendPrompt}>
-		<label for="prompt">
-			<textarea name="prompt" rows="4" bind:value={prompt} />
-		</label>
+		<textarea name="prompt" rows="4" bind:value={prompt} />
 		<button type="submit" id="submitButton">submit</button>
 	</form>
 </div>
