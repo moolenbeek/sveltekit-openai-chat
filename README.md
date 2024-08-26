@@ -8,7 +8,12 @@ This is a simple chat bot using sveltekit forms, bind, POST, OpenAi API, and GPT
 
 ## Storing your API key .env
 
-Store your api key in a .env file in the project root as OPENAI_API_KEY=YOUR_KEY_GOES_HERE
+Store your api key in a .env file in the project root as `OPENAI_API_KEY=`
+
+```bash
+#.env
+OPENAI_API_KEY=YOUR_API_KEY_GOES_HERE
+```
 
 ## Developing
 
