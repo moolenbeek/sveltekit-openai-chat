@@ -30,6 +30,10 @@
 {/each}
 
 <style>
+	textarea {
+		width: 300px;
+		height: 150px;
+	}
 	form {
 		display: inline-block;
 	}
