@@ -25,11 +25,22 @@
 	</form>
 </div>
 
-{#each messages as message}
-	<pre>{JSON.parse(message)[2]}</pre>
-{/each}
+{#if messages.length !== 0}
+	<div id="messages">
+		{#each messages as message}
+			<pre>{JSON.parse(message)[2]}</pre>
+		{/each}
+	</div>
+{/if}
 
 <style>
+	pre {
+		white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+		white-space: -pre-wrap; /* Opera */
+		white-space: -o-pre-wrap; /* Opera */
+		white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+		word-wrap: break-word; /* IE 5.5+ */
+	}
 	textarea {
 		width: 300px;
 		height: 150px;
@@ -40,6 +51,13 @@
 	.container {
 		padding: 1em;
 		text-align: center;
+	}
+	#messages {
+		width: 80vw;
+		margin: auto;
+		padding: 1em;
+		border-radius: 6px;
+		background-color: lightgrey;
 	}
 	#title {
 		font-family: Archivo, sans-serif;
