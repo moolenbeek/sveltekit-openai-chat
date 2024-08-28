@@ -57,7 +57,7 @@
 		margin: auto;
 		padding: 1em;
 		border-radius: 6px;
-		background-color: lightgrey;
+		background-color: #708090;
 	}
 	#title {
 		font-family: Archivo, sans-serif;
