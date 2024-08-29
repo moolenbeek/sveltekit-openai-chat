@@ -42,7 +42,7 @@
 		word-wrap: break-word; /* IE 5.5+ */
 	}
 	textarea {
-		width: 300px;
+		width: 500px;
 		height: 150px;
 	}
 	form {
