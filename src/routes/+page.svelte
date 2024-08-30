@@ -17,7 +17,7 @@
 </script>
 
 <div class="container">
-	<h1 id="title">Open AI</h1>
+	<h1 id="title">Chat GPT</h1>
 
 	<form method="POST" on:submit|preventDefault={sendPrompt}>
 		<textarea name="prompt" rows="4" bind:value={prompt} />
