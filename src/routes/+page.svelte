@@ -57,7 +57,8 @@
 		margin: auto;
 		padding: 1em;
 		border-radius: 6px;
-		background-color: #708090;
+		background-color: #7f40f5;
+		color: white;
 	}
 	#title {
 		font-family: Archivo, sans-serif;
