@@ -4,7 +4,7 @@ This is a simple chat bot using sveltekit forms, bind, POST, OpenAi API, and GPT
 
 ## Creating your API key
 
-[`OpenAI`](https://platform.openai.com/docs/overview)
+Create an account here: [`OpenAI`](https://platform.openai.com/docs/overview)
 
 ## Storing your API key .env
 
