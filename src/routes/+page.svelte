@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+	import { enhance } from '$app/forms';
 	let prompt = "";
 	let messages: string[] = [];
 
@@ -19,14 +21,14 @@
 <div class="container">
 	<h1 id="title">Chat GPT</h1>
 
-	<form method="POST" on:submit|preventDefault={sendPrompt}>
+	<form method="POST" use:enhance on:submit|preventDefault={sendPrompt}>
 		<textarea name="prompt" rows="4" bind:value={prompt} />
 		<button type="submit" id="submitButton">submit</button>
 	</form>
 </div>
 
 {#if messages.length !== 0}
-	<div id="messages">
+	<div in:fly={{ y: 20 }} id="messages">
 		{#each messages as message}
 			<pre>{JSON.parse(message)[2]}</pre>
 		{/each}
