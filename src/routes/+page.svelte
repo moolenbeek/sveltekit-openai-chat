@@ -53,6 +53,7 @@
 	textarea {
 		width: 500px;
 		height: 150px;
+		resize: none;
 	}
 	form {
 		display: inline-block;
