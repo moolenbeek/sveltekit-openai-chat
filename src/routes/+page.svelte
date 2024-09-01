@@ -1,8 +1,12 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
-	import { enhance } from '$app/forms';
+	import { fly, slide } from "svelte/transition";
+	import { enhance } from "$app/forms";
 	let prompt = "";
 	let messages: string[] = [];
+
+	const deleteChat = () => {
+		messages = [];
+	}
 
 	async function sendPrompt() {
 		const response = await fetch("/", {
@@ -24,11 +28,14 @@
 	<form method="POST" use:enhance on:submit|preventDefault={sendPrompt}>
 		<textarea name="prompt" rows="4" bind:value={prompt} />
 		<button type="submit" id="submitButton">submit</button>
+		{#if messages.length !== 0}
+			<button id="deleteButton" on:click={deleteChat}>delete</button>
+		{/if}
 	</form>
 </div>
 
 {#if messages.length !== 0}
-	<div in:fly={{ y: 20 }} id="messages">
+	<div in:fly={{ y: 20 }} out:slide id="messages">
 		{#each messages as message}
 			<pre>{JSON.parse(message)[2]}</pre>
 		{/each}
@@ -110,5 +117,49 @@
 			rgba(50, 50, 93, 0.2) 0 6px 15px 0,
 			rgba(0, 0, 0, 0.1) 0 2px 2px 0,
 			rgba(50, 151, 211, 0.3) 0 0 0 4px;
+	}
+	#deleteButton {
+		display: block;
+		appearance: button;
+		backface-visibility: hidden;
+		background-color: #f5405c;
+		border-radius: 6px;
+		border-width: 0;
+		box-shadow:
+			rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+			rgba(50, 50, 93, 0.1) 0 2px 5px 0,
+			rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+		box-sizing: border-box;
+		color: #fff;
+		cursor: pointer;
+		font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+		font-size: 100%;
+		height: 44px;
+		line-height: 1.15;
+		margin: 12px 0 0;
+		outline: none;
+		overflow: hidden;
+		padding: 0 25px;
+		position: relative;
+		text-align: center;
+		text-transform: none;
+		transform: translateZ(0);
+		transition:
+			all 0.2s,
+			box-shadow 0.08s ease-in;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		width: 100%;
+	}
+	#deleteButton:disabled {
+		cursor: default;
+	}
+	#deleteButton:focus {
+		box-shadow:
+			rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+			rgba(50, 50, 93, 0.2) 0 6px 15px 0,
+			rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+			rgba(218, 43, 8, 0.3) 0 0 0 4px;
 	}
 </style>
