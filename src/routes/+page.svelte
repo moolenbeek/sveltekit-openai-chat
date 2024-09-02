@@ -29,7 +29,7 @@
 		<textarea name="prompt" rows="4" bind:value={prompt} />
 		<button type="submit" id="submitButton">submit</button>
 		{#if messages.length !== 0}
-			<button id="deleteButton" on:click={deleteChat}>delete</button>
+			<button id="deleteButton" in:fly={{ y: 20 }} on:click={deleteChat}>delete</button>
 		{/if}
 	</form>
 </div>
